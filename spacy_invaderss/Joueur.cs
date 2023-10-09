@@ -8,8 +8,9 @@
         public int x = 0; 
         public int y = 20; 
         public static string[] playerDesign = new string[] { "  /\\", " /__\\", "[i][i]" }; //skin du joueur
-        private List<Tirs> tirsActifs = new();
+        private List<Tirs> tirsActifs = new();//fait une liste consctucteru avec tirs pour gerer les tirs du joueur
         public int temp = 0;
+       
         /// <summary>
         /// permet au joueur de tirer et de se déplacer
         /// </summary>
@@ -30,17 +31,12 @@
                         tirsActifs.RemoveAt(i);
                         i--;
                         hit = true; // Indique qu'il y a eu une collision
-                        Console.SetCursorPosition(t.X, t.Y);
-                       
-                        Console.Write(" ");
-                       
+                        Console.SetCursorPosition(t.X, t.Y);                     
+                        Console.Write(" ");                       
                     }
                 }
                 if (hit) break; // Si un tir a touché un ennemi, sortez de la boucle externe
             }
-
-
-
             if (Console.KeyAvailable)
             {
                 temp--;
@@ -82,6 +78,7 @@
         /// </summary>
         public void Apparait()
         {
+           
             Joueur.CurrentPlayer = this;  // Initialisez l'instance actuelle
 
             x = Console.WindowWidth / 2;

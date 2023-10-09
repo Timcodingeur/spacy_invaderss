@@ -9,9 +9,10 @@ namespace enemie
     internal class GameEngine
     {
         //initialise l'enemie et le joueur pour les var non static
-        Joueur jeux = new();
-        Enemie enemie = new();
+        Joueur jeux = new(); //fait un constructeur avec joueur, permet d'utiliser les différente methode des joueur dans le code
+        Enemie enemie = new();//fait un constructeur avec enemie, permet d'utiliser les différente methode des enemie dans le code
         int fpscal = 16; //petit system pour les fps
+        public int difficulté;
         /// <summary>
         /// lance le menu
         /// </summary>
@@ -67,13 +68,13 @@ namespace enemie
         /// </summary>
         public void Start()
         {
-
-            Enemie.LancerEn();
+           
+            enemie.LancerEn();
             jeux.Apparait();
 
             while (true)
             {
-
+                
                 Console.CursorVisible = false;
                 enemie.Moove();
                 jeux.Jouer();

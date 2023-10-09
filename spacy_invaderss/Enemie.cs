@@ -2,20 +2,26 @@
 {
 
 
-
+    /// <summary>
+    /// class pour les enemie, permet des gerer leurs mouvement, leurs mort etc etc
+    /// </summary>
     public class Enemie
     {
-        private List<Tirs> tirsEnemi = new();
+        private List<Tirs> tirsEnemi = new();//créé une liste avec les tirs des enemie, permet de les fair bouger et les supprimer quand il le faut
         public bool titre = false; //titre permet de definir si c'est le joueur ou l'enemie, ses l'enemie dans se cas (ses pour simplifier la methode de tirs)
         ConsoleColor color = ConsoleColor.Gray;
-        public static List<Enemie> enemies = new();
+        public static List<Enemie> enemies = new(); //créé une liste avec les enemie dedans, permet de verifie leurs attribus a chacun
         static List<Enemie> enemiesToRemove = new(); //defini quand il y'aurra un enemie a enlever   
         public int x = 0; //pour definir ou est le tirs ou l'enemie dans la largeur
         public int y=1; //pour definir ou est le tirs ou l'enemie dans la hauteur
         public int NumberEnemy = 20;
-        public string skin = "-0_0-";
+        string skin = "-0_0-";
         public byte life = 3;
         public int score = 0;
+        char difficulté;
+        /// <summary>
+        /// encapsule la liste des Tirs enemie
+        /// </summary>
         public List<Tirs> TirsEnemi { get => tirsEnemi; set => tirsEnemi = value; }
         /// <summary>
         /// permet d'update de score par rapport a la vie, il fait vie*1000 a chaque fois pour le scrore gagné
@@ -138,9 +144,25 @@
         /// <summary>
         /// fait apparaitre les enemie au début
         /// </summary>
-        public static void LancerEn()
+        public void LancerEn()
         {
-            Enemie enemie= new();
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("a quelle difficulté voulez vous jouer?");
+                Console.WriteLine("0= trop facile");
+                Console.WriteLine("1= facile");
+                Console.WriteLine("2= moyen");
+                Console.WriteLine("3= difficile");
+                Console.WriteLine("4= très difficile");
+                Console.WriteLine("5= impossible");
+                Console.Write("Choix: ");
+                difficulté = Console.ReadKey(true).KeyChar;
+                Console.Clear();
+            } while (difficulté != '0' && difficulté !='1' &&difficulté !='2' && difficulté != '3' && difficulté != '4' && difficulté != '5');
+            //fait une instance de enemie pour pouvoir utiliser score
+            Enemie enemie = new();
+
             Console.SetCursorPosition(10, 0);
             Console.WriteLine("score: " + enemie.score);
             for (int j = 0; j < 4; j++)
@@ -170,17 +192,42 @@
             currentMoves = 0;
             tick = 0;
         }
-       
+        
 
         /// <summary>
         /// s'occupe du mouvement des enemie
         /// </summary>
         public void Moove()
         {
+            
             Console.SetCursorPosition(0, 0);
             Console.WriteLine(" vies: "+Joueur.jouLife);
             Random Tir_enemie = new();
-            int tirus = Tir_enemie.Next(20);
+            int tirus;
+            switch (difficulté)
+            {
+                case '0':
+                    tirus = Tir_enemie.Next(1, 35);
+                    break;
+                case '1':
+                    tirus = Tir_enemie.Next(1,20);
+                    break;
+                case '2':
+                    tirus = Tir_enemie.Next(1, 13);
+                    break;
+                case '3':
+                    tirus = Tir_enemie.Next(1, 7);
+                    break;
+                case '4':
+                    tirus = Tir_enemie.Next(1, 3);
+                    break;
+                case '5':
+                    tirus = Tir_enemie.Next(1,2);
+                    break;
+                default: tirus = Tir_enemie.Next(20);
+                    break;
+            }
+            
 
             // Sélectionne un ennemi au hasard pour tirer
             Enemie? randomEnemy = null;
@@ -223,7 +270,7 @@
             }
             Enemie.enemiesToRemove.Clear();  // Videz la liste temporaire
             //logique aléatoir pour les tirs des enemie
-            if (tirus == 19 && randomEnemy != null)
+            if (tirus == 1 && randomEnemy != null)
             {
                 try
                 {
@@ -251,6 +298,7 @@
             for (int i = 0; i < TirsEnemi.Count; i++)
             {
                 Tirs t = TirsEnemi[i];
+                //fait un constructeur avec joueur pour verifier si les tir touche ou non
                 Joueur currentPlayer = Joueur.CurrentPlayer!;               
                 bool hit = false;
 
