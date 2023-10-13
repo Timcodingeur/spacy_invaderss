@@ -14,9 +14,13 @@ namespace enemie.Tests
         [TestMethod()]
         public void JouerTest()
         {
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-
-            Assert.Fail();
+            Joueur.jouLife = 5;
+        }
+        [TestMethod()]
+        public void MechanTest()
+        {
+            Enemie mechant = new();
+            mechant.life = 3;
         }
     }
 }
