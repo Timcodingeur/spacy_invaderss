@@ -18,7 +18,7 @@
         string skin = "-0_0-";
         public byte life = 3;
         public int score = 0;
-        char difficulté;
+        char difficulté ='e';
         /// <summary>
         /// encapsule la liste des Tirs enemie
         /// </summary>
@@ -91,7 +91,7 @@
             };
             //s'occupe du system de vie des enemie
             switch (life)
-            {
+            { 
                 case 3:
                     color = ConsoleColor.White;
                     break;
@@ -106,16 +106,13 @@
                     enemiesToRemove.Add(this);
                     Console.SetCursorPosition(x-1, y);
                     Console.Write("       ");
-                    NumberEnemy--;
                     
                     break;
-                case >3:
+                default:
                     //logique de suppression des enemie, sa met des espace, sa l'ajoute a la liste enemie remove qui va le supp de la liste ensuite
                     enemiesToRemove.Add(this);
                     Console.SetCursorPosition(x - 1, y);
                     Console.Write("       ");
-                    NumberEnemy--;
-
                     break;
             }
 
@@ -263,9 +260,10 @@
             //enleve les enemie a la fin du mouvement pour eviter les bug
             foreach (var enemyToRemove in Enemie.enemiesToRemove)
             {
+                NumberEnemy--;
 
-                
                 UpdateScore();
+
                 Enemie.enemies.Remove(enemyToRemove);
             }
             Enemie.enemiesToRemove.Clear();  // Videz la liste temporaire
