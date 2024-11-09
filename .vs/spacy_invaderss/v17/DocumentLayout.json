@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invaderss\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|solutionrelative:spacy_invaderss\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invaderss\\enemie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|solutionrelative:spacy_invaderss\\enemie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{354E191B-0A33-494F-8BBA-ABE22EACC3E4}|spacy_invaderssTests\\spacy_invaderssTests.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invadersstests\\joueurtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{354E191B-0A33-494F-8BBA-ABE22EACC3E4}|spacy_invaderssTests\\spacy_invaderssTests.csproj|solutionrelative:spacy_invadersstests\\joueurtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invaderss\\joueur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|solutionrelative:spacy_invaderss\\joueur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invaderss\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|solutionrelative:spacy_invaderss\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pw67ehi\\Desktop\\IceScrub-master\\Testsheet.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|c:\\users\\timot\\desktop\\projetgithub\\spacy_invaderss\\spacy_invaderss\\tirs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464F7E3D-ADED-409A-BA0F-E0E5D17D29F8}|spacy_invaderss\\spacy_invaderss.csproj|solutionrelative:spacy_invaderss\\tirs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JoueurTests.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderssTests\\JoueurTests.cs",
+              "RelativeDocumentMoniker": "spacy_invaderssTests\\JoueurTests.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderssTests\\JoueurTests.cs",
+              "RelativeToolTip": "spacy_invaderssTests\\JoueurTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Testsheet.html",
+              "DocumentMoniker": "C:\\Users\\pw67ehi\\Desktop\\IceScrub-master\\Testsheet.html",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\pw67ehi\\Desktop\\IceScrub-master\\Testsheet.html",
+              "ToolTip": "C:\\Users\\pw67ehi\\Desktop\\IceScrub-master\\Testsheet.html",
+              "RelativeToolTip": "..\\..\\..\\..\\pw67ehi\\Desktop\\IceScrub-master\\Testsheet.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2023-10-09T13:35:20.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Program.cs",
+              "RelativeDocumentMoniker": "spacy_invaderss\\Program.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Program.cs",
+              "RelativeToolTip": "spacy_invaderss\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Joueur.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Joueur.cs",
+              "RelativeDocumentMoniker": "spacy_invaderss\\Joueur.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Joueur.cs",
+              "RelativeToolTip": "spacy_invaderss\\Joueur.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Enemie.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Enemie.cs",
+              "RelativeDocumentMoniker": "spacy_invaderss\\Enemie.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Enemie.cs",
+              "RelativeToolTip": "spacy_invaderss\\Enemie.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAwwAkAAACTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Connection.cs",
+              "RelativeDocumentMoniker": "spacy_invaderss\\Connection.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Connection.cs",
+              "RelativeToolTip": "spacy_invaderss\\Connection.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwA4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Tirs.cs",
+              "DocumentMoniker": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Tirs.cs",
+              "RelativeDocumentMoniker": "spacy_invaderss\\Tirs.cs",
+              "ToolTip": "C:\\Users\\timot\\Desktop\\projetGitHub\\spacy_invaderss\\spacy_invaderss\\Tirs.cs",
+              "RelativeToolTip": "spacy_invaderss\\Tirs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T14:59:35.978Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

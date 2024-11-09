@@ -10,11 +10,11 @@ namespace enemie
         public static void Connect()
         {
             //defini les paramètre de connection
-            string server = "localhost";
+            string server = "db";
             string database = "db_space_invaders";
             string user = "root";
             string password = "root";
-            string port = "6033";
+            string port = "3306";
            
             Console.Clear();
             //créé la variable de connection
