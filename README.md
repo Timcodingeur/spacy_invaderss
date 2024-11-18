@@ -44,7 +44,7 @@ Voici les informations de connexion actuellement utilisées :
 - Mot de passe : `root`
 - Port : `3306`
 
-Assurez-vous de créer un container Docker nommé `db` pour que le jeu puisse se connecter correctement à la base de données.
+Vous avez tout ce qu'il faut dans le dossier [Docker_MySQL](./Docker_MySQL).
 
 ## Jouer au Jeu
 Choisissez votre niveau de difficulté préféré et essayez de battre les records ! Les meilleurs scores seront enregistrés dans la base de données et pourront être consultés à tout moment.
