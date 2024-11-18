@@ -45,6 +45,7 @@ Voici les informations de connexion actuellement utilisées :
 - Port : `3306`
 
 Vous avez tout ce qu'il faut dans le dossier [Docker_MySQL](./Docker_MySQL).
+renommé de fichier oui.envmodel en .env
 
 ## Jouer au Jeu
 Choisissez votre niveau de difficulté préféré et essayez de battre les records ! Les meilleurs scores seront enregistrés dans la base de données et pourront être consultés à tout moment.
