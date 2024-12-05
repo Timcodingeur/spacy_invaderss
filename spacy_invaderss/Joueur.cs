@@ -1,156 +1,164 @@
 ﻿namespace enemie
 {
-    public class Joueur
+    public class Player
     {
-        public static Joueur? CurrentPlayer { get; set; }
-        public static byte jouLife = 5; //vie du joueur
-        public byte enemieTuer = 0; //compteur d'enemie tuer
-        public int x = 0; 
-        public int y = 20; 
-        public static string[] playerDesign = new string[] { "  /\\", " /__\\", "[i][i]" }; //skin du joueur
-        private List<Tirs> tirsActifs = new();//fait une liste consctucteru avec tirs pour gerer les tirs du joueur
-        public int temp = 0;
-       
-        /// <summary>
-        /// permet au joueur de tirer et de se déplacer
-        /// </summary>
-        public void Jouer()
-        {       
-            Console.ForegroundColor = ConsoleColor.White;
-            for (int i = 0; i < tirsActifs.Count; i++)
-            {
+        public static Player? CurrentPlayer { get; set; }
+        public static byte PlayerLives = 5;
+        public int X { get; set; }
+        public int Y { get; set; } = 20;
+        public static string[] Design { get; } = { "  /\\", " /__\\", "[i][i]" };
+        private readonly List<Shot> activeShots = new();
+        private int shotCooldown = 0;
 
-                Tirs t = tirsActifs[i];
-                bool hit = false;
-                for (int j = 0; j < Enemie.enemies.Count && !hit; j++)
-                {
-                    Enemie e = Enemie.enemies[j];
-                    if (t.Y == e.y && (t.X == e.x || t.X == e.x + 1 || t.X == e.x - 1 || t.X == e.x - 2 || t.X == e.x - 3|| t.X == e.x + 2))
-                    {
-                        e.life--;
-                        tirsActifs.RemoveAt(i);
-                        i--;
-                        hit = true; // Indique qu'il y a eu une collision
-                        Console.SetCursorPosition(t.X, t.Y);                     
-                        Console.Write(" ");                       
-                    }
-                }
-                if (hit) break; // Si un tir a touché un ennemi, sortez de la boucle externe
+        /// <summary>
+        /// Updates the player: movement and shooting.
+        /// </summary>
+        public void Update()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+
+            HandleCollisions();
+            HandleInput();
+            UpdateShots();
+        }
+
+        /// <summary>
+        /// Spawns the player at the beginning of the game.
+        /// </summary>
+        public void Spawn()
+        {
+            CurrentPlayer = this;
+            X = Console.WindowWidth / 2;
+
+            for (int i = 0; i < Design.Length; i++)
+            {
+                Console.SetCursorPosition(X, Y + i);
+                Console.Write(Design[i]);
             }
+
+            PlayerLives = 5;
+        }
+
+        /// <summary>
+        /// Handles the player's input for movement and shooting.
+        /// </summary>
+        private void HandleInput()
+        {
             if (Console.KeyAvailable)
             {
-                temp--;
+                shotCooldown--;
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        Gauche();
+                        Move(-1);
                         break;
                     case ConsoleKey.RightArrow:
-                        Droite();
+                        Move(1);
                         break;
                     case ConsoleKey.Spacebar:
-                        Tirer();
-                        break;
-                    default:
+                        Shoot();
                         break;
                 }
             }
-            
-            // Mettez à jour tous les tirs actifs
-            for (int i = 0; i < tirsActifs.Count; i++)
-            {
-                tirsActifs[i].Tir();
+        }
 
-                // Si le tir est hors de l'écran, supprimez-le de la liste
-                if (tirsActifs[i].Y < 1)
+        /// <summary>
+        /// Moves the player in the specified direction.
+        /// </summary>
+        /// <param name="direction">-1 for left, 1 for right.</param>
+        private void Move(int direction)
+        {
+            if ((direction < 0 && X > 0) || (direction > 0 && X < Console.WindowWidth - Design[0].Length))
+            {
+                Erase();
+                X += direction;
+                Draw();
+            }
+        }
+
+        /// <summary>
+        /// Handles the player's shooting.
+        /// </summary>
+        private void Shoot()
+        {
+            if (shotCooldown <= 0)
+            {
+                var shot = new Shot { IsPlayerShot = true, Y = Y, X = X };
+                activeShots.Add(shot);
+                shotCooldown = 10;
+            }
+        }
+
+        /// <summary>
+        /// Updates the positions of the player's shots.
+        /// </summary>
+        private void UpdateShots()
+        {
+            for (int i = 0; i < activeShots.Count; i++)
+            {
+                activeShots[i].Move();
+
+                if (activeShots[i].Y < 1)
                 {
-                    Console.SetCursorPosition(tirsActifs[i].X+2, tirsActifs[i].Y);
+                    Console.SetCursorPosition(activeShots[i].X + 2, activeShots[i].Y);
                     Console.Write(" ");
-                    tirsActifs.RemoveAt(i);
-                    i--; // Ajustez l'index après avoir supprimé un élément
-                    
+                    activeShots.RemoveAt(i);
+                    i--;
                 }
             }
         }
-        /// <summary>
-        /// fait apparaitre le joueur au début du jeux
-        /// </summary>
-        public void Apparait()
-        {
-           
-            Joueur.CurrentPlayer = this;  // Initialisez l'instance actuelle
 
-            x = Console.WindowWidth / 2;
-            for (int i = 0; i < playerDesign.Length; i++)
+        /// <summary>
+        /// Handles collisions between the player's shots and enemies.
+        /// </summary>
+        private void HandleCollisions()
+        {
+            for (int i = 0; i < activeShots.Count; i++)
             {
-                Console.SetCursorPosition(x, y + i);
-                Console.Write(playerDesign[i]);
-            }
+                var shot = activeShots[i];
+                bool hit = false;
 
-            jouLife = 5;
-        }
-        public void AfficherVaisseau()
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            for (int i = 0; i < playerDesign.Length; i++)
-            {
-                Console.SetCursorPosition(x, y + i);
-                Console.Write(playerDesign[i]);
+                for (int j = 0; j < EnemyManager.Enemies.Count && !hit; j++)
+                {
+                    var enemy = EnemyManager.Enemies[j];
+                    if (shot.Y == enemy.Y && (shot.X >= enemy.X - 3 && shot.X <= enemy.X + 2))
+                    {
+                        enemy.Life--;
+                        activeShots.RemoveAt(i);
+                        i--;
+                        hit = true;
+                        Console.SetCursorPosition(shot.X, shot.Y);
+                        Console.Write(" ");
+                    }
+                }
+
+                if (hit) break;
             }
         }
+
         /// <summary>
-        /// efface le vaisseau quand il se déplace (pour pas laisser de résidut)
+        /// Draws the player's ship on the screen.
         /// </summary>
-        public void EffacerVaisseau()
+        private void Draw()
         {
-            for (int i = 0; i < playerDesign.Length; i++)
+            for (int i = 0; i < Design.Length; i++)
             {
-                Console.SetCursorPosition(x, y + i);
-                Console.Write(new string(' ', playerDesign[i].Length));
+                Console.SetCursorPosition(X, Y + i);
+                Console.Write(Design[i]);
             }
         }
+
         /// <summary>
-        /// configure le mouvement vers la droite
+        /// Erases the player's ship from the screen.
         /// </summary>
-        public void Droite()
+        private void Erase()
         {
-           
-            Console.ForegroundColor = ConsoleColor.White;
-            if (x < Console.WindowWidth - playerDesign[0].Length)
+            for (int i = 0; i < Design.Length; i++)
             {
-                EffacerVaisseau();
-                x++;
-                AfficherVaisseau();
+                Console.SetCursorPosition(X, Y + i);
+                Console.Write(new string(' ', Design[i].Length));
             }
-            
-            
-        }
-        /// <summary>
-        /// configue le tirs
-        /// </summary>
-        public void Tirer()
-        {
-            if (temp < 10)
-            {
-                // Créez un nouveau tir et ajoutez-le à la liste des tirs actifs
-                Tirs tirer = new() { titre = true, Y = y, X = x };
-                tirsActifs.Add(tirer);
-                temp += 10;
-            }
-        }
-        /// <summary>
-        /// configure le mouvement vers la gauche
-        /// </summary>
-        public void Gauche()
-        {          
-            Console.ForegroundColor = ConsoleColor.White;
-            if (x > 0)
-            {
-                EffacerVaisseau();
-                x--;
-                AfficherVaisseau();
-            }                   
         }
     }
 }

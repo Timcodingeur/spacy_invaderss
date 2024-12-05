@@ -3,9 +3,8 @@
     internal class Program
     {
         /// <summary>
-        /// main, lance le jeux
+        /// Point d'entrée principal du programme.
         /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
         {
             while (true)

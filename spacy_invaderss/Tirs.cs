@@ -1,44 +1,43 @@
 ﻿namespace enemie
 {
-    public class Tirs
+    /// <summary>
+    /// Manages the shots of both the player and the enemies.
+    /// </summary>
+    public class Shot
     {
-        public bool top=true;
-        public bool titre = false;
-        string Skin = "|";
-        public int X; 
-        public int Y;
+        public bool IsPlayerShot { get; set; }
+        private readonly string skin = "|";
+        public int X { get; set; }
+        public int Y { get; set; }
 
         /// <summary>
-        /// gère les tirs des enemie et du joueur
+        /// Moves the shot on the screen.
         /// </summary>
-        public void Tir()
+        public void Move()
         {
-            if (titre == false)
+            if (IsPlayerShot)
             {
-                //supp le tirs quand il est en haut de la console
-                if (Y < Console.WindowHeight-1)
+                Console.SetCursorPosition(X + 2, Y);
+                Console.Write(" ");
+                Y--;
+                Console.SetCursorPosition(X + 2, Y);
+                Console.Write(skin);
+            }
+            else
+            {
+                if (Y < Console.WindowHeight - 1)
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(" ");
-
-                    Y++;  // Déplace le tirs vers le bas
-
+                    Y++;
                     Console.SetCursorPosition(X, Y);
-                    Console.Write(Skin);
-                    
+                    Console.Write(skin);
                 }
                 else
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(" ");
                 }
-            }else if (titre == true)
-            {             
-                    Console.SetCursorPosition(X+2, Y);
-                    Console.Write(" ");
-                    Y--;  // Déplace le tirs vers le haut
-                    Console.SetCursorPosition(X+2, Y);
-                    Console.Write(Skin);              
             }
         }
     }
